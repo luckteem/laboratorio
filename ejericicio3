@@ -1,0 +1,24 @@
+using System;
+
+public static class PhoneNumber
+{
+    public static (bool isNewYork, bool isFake, string localNumber) Analyze(string phoneNumber)
+    {
+     
+        string[] parts = phoneNumber.Split('-');
+
+        string areaCode = parts[0];      // primeros 3 dígitos
+        string prefix = parts[1];        // dígitos 4-6
+        string localNumber = parts[2];   // últimos 4 dígitos
+
+        bool isNewYork = areaCode == "212";
+        bool isFake = prefix == "555";
+
+        return (isNewYork, isFake, localNumber);
+    }
+
+    public static bool IsFake((bool isNewYork, bool isFake, string localNumber) analysis)
+    {
+        return analysis.isFake;
+    }
+}
