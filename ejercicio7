@@ -1,0 +1,23 @@
+using System;
+
+public static class Leap
+{
+    public static bool IsLeapYear(int year)
+    {
+        // Año divisible por 400 → bisiesto
+        if (year % 400 == 0)
+        {
+            return true;
+        }
+        // Año divisible por 100 → no bisiesto
+        else if (year % 100 == 0)
+        {
+            return false;
+        }
+        // Año divisible por 4 → bisiesto
+        else
+        {
+            return year % 4 == 0;
+        }
+    }
+}
