@@ -1,0 +1,30 @@
+using System;
+
+public static class LineUp
+{
+    public static string Format(string nombre, int numero)
+    {
+        string sufijo = ObtenerSufijoOrdinal(numero);
+        return $"{nombre}, sos el cliente número {numero}{sufijo} que atendemos hoy. ¡Gracias!";
+    }
+
+    private static string ObtenerSufijoOrdinal(int numero)
+    {
+        // Excepciones: 11, 12, 13 siempre terminan en "th"
+        int ultimosDosDigitos = numero % 100;
+        if (ultimosDosDigitos == 11 || ultimosDosDigitos == 12 || ultimosDosDigitos == 13)
+        {
+            return "th";
+        }
+
+        // Según el último dígito
+        int ultimoDigito = numero % 10;
+        return ultimoDigito switch
+        {
+            1 => "st",
+            2 => "nd",
+            3 => "rd",
+            _ => "th"
+        };
+    }
+}
