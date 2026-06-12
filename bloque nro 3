@@ -1,0 +1,178 @@
+import random
+import string
+
+def ejercicio_a():
+    votos = {"opcion1":0, "opcion2":0, "opcion3":0}
+    while True:
+        voto = input("Vote por opcion1, opcion2, opcion3 (o 'terminar'): ").lower()
+        if voto == "terminar":
+            break
+        elif voto in votos:
+            votos[voto] += 1
+        else:
+            print("Opción inválida")
+    ganador = max(votos, key=votos.get)
+    print("Ganó:", ganador)
+
+def ejercicio_b():
+    num = int(input("Ingrese un número: "))
+    if num < 1:
+        print("No se puede")
+    else:
+        for i in range(1, num):
+            if i % 2 != 0:
+                print(i)
+
+def ejercicio_c():
+    palabra = input("Ingrese una palabra: ")
+    letra = input("Ingrese una letra: ")
+    print("La letra aparece", palabra.count(letra), "veces")
+
+def ejercicio_d():
+    saldo = 1000
+    while True:
+        print("Saldo actual:", saldo)
+        accion = input("¿Desea depositar, retirar o salir?: ").lower()
+        if accion == "salir":
+            break
+        elif accion == "depositar":
+            monto = float(input("Monto a depositar: "))
+            saldo += monto
+        elif accion == "retirar":
+            monto = float(input("Monto a retirar: "))
+            if monto <= saldo:
+                saldo -= monto
+            else:
+                print("No puede retirar más de lo que tiene")
+
+def ejercicio_e():
+    numeros = []
+    i = 1
+    while len(numeros) < 50:
+        if (i % 2 == 0 or i % 5 == 0) and not (i % 10 == 0):
+            numeros.append(i)
+        i += 1
+    print(numeros)
+
+def ejercicio_f():
+    palabra = input("Ingrese una palabra: ").upper()
+    for letra in palabra:
+        if letra in string.ascii_uppercase:
+            print(letra, "=", ord(letra) - 64)
+
+def ejercicio_g():
+    secreto = random.randint(1, 100)
+    intentos = 0
+    while True:
+        intento = int(input("Adivine el número: "))
+        intentos += 1
+        if intento == secreto:
+            print("¡Correcto en", intentos, "intentos!")
+            break
+        elif intento > secreto:
+            print("Más chico")
+        else:
+            print("Más grande")
+
+def ejercicio_h():
+    frase = input("Ingrese una frase: ")
+    palabras = frase.split()
+    invertidas = ["".join(reversed(p)) for p in palabras]
+    print(" ".join(invertidas))
+
+def ejercicio_i():
+    palabra = input("Ingrese una palabra: ").lower()
+    conteo = {}
+    for letra in palabra:
+        conteo[letra] = conteo.get(letra, 0) + 1
+    for letra, cant in conteo.items():
+        print(letra, ":", cant)
+
+def ejercicio_j():
+    usuario = "admin"
+    clave = "1234"
+    intentos = 3
+    while intentos > 0:
+        u = input("Usuario: ")
+        c = input("Contraseña: ")
+        if u == usuario and c == clave:
+            print("Bienvenido", usuario)
+            return
+        else:
+            intentos -= 1
+            print("Incorrecto. Intentos restantes:", intentos)
+    print("Acceso denegado")
+
+def ejercicio_k():
+    num = int(input("Ingrese un número: "))
+    if 0 <= num <= 25:
+        print("Está en el rango 0-25")
+    elif 26 <= num <= 50:
+        print("Está en el rango 26-50")
+    elif 51 <= num <= 75:
+        print("Está en el rango 51-75")
+    elif 76 <= num <= 100:
+        print("Está en el rango 76-100")
+    else:
+        print("Fuera de rango")
+
+def ejercicio_l():
+    peso = float(input("Ingrese su peso (kg): "))
+    altura = float(input("Ingrese su altura (m): "))
+    imc = peso / (altura**2)
+    print("Su IMC es:", round(imc,2))
+    if imc < 18.5:
+        print("Bajo peso")
+    elif imc < 25:
+        print("Normal")
+    elif imc < 30:
+        print("Sobrepeso")
+    else:
+        print("Obesidad")
+
+def ejercicio_m():
+    palabra = input("Ingrese una palabra: ")
+    for i in range(1, len(palabra)+1):
+        print(palabra[:i])
+
+def ejercicio_n():
+    while True:
+        frase = input("Ingrese una frase (o 'agusfortnite2008' para terminar): ")
+        if frase == "agusfortnite2008":
+            break
+        for v in "aeiou":
+            nueva = ""
+            for letra in frase:
+                if letra.lower() in "aeiou":
+                    nueva += v
+                else:
+                    nueva += letra
+            print(nueva)
+
+
+# Menú principal
+def menu():
+    opciones = {
+        "a": ejercicio_a, "b": ejercicio_b, "c": ejercicio_c, "d": ejercicio_d,
+        "e": ejercicio_e, "f": ejercicio_f, "g": ejercicio_g, "h": ejercicio_h,
+        "i": ejercicio_i, "j": ejercicio_j, "k": ejercicio_k, "l": ejercicio_l,
+        "m": ejercicio_m, "n": ejercicio_n
+    }
+
+    while True:
+        print("\n--- MENÚ TERCER BLOQUE ---")
+        print("a-n: Elegir ejercicio")
+        print("x: Salir")
+        opcion = input("Ingrese una opción: ").lower()
+
+        if opcion == "x":
+            print("¡Hasta luego!")
+            break
+        elif opcion in opciones:
+            opciones[opcion]()
+        else:
+            print("Opción inválida")
+
+
+# Ejecutar menú
+menu()
