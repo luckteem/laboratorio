@@ -1,0 +1,206 @@
+
+import random
+
+def ejercicio_a():
+    numero_secreto = random.randint(1, 10)
+    while True:
+        intento = int(input("Adivine el número (1-10): "))
+        if intento == numero_secreto:
+            print("¡Correcto!")
+            break
+        elif intento > numero_secreto:
+            print("El número es menor")
+        else:
+            print("El número es mayor")
+
+def ejercicio_b():
+    num = int(input("Ingrese un número: "))
+    print("Divisores:", [i for i in range(1, num+1) if num % i == 0])
+
+def ejercicio_c():
+    fib = [0, 1]
+    while len(fib) < 20:
+        fib.append(fib[-1] + fib[-2])
+    print("Serie Fibonacci:", fib)
+
+def ejercicio_d():
+    op = input("Ingrese operación (+, -, *, /): ")
+    a = float(input("Ingrese primer número: "))
+    b = float(input("Ingrese segundo número: "))
+    if op == "+":
+        print("Resultado:", a+b)
+    elif op == "-":
+        print("Resultado:", a-b)
+    elif op == "*":
+        print("Resultado:", a*b)
+    elif op == "/":
+        if b != 0:
+            print("Resultado:", a/b)
+        else:
+            print("Error: división por cero")
+
+def ejercicio_e():
+    num = int(input("Ingrese un número: "))
+    fact = 1
+    for i in range(1, num+1):
+        fact *= i
+    print("Factorial:", fact)
+
+def ejercicio_f():
+    turnos = []
+    while True:
+        nombre = input("Ingrese nombre (fin para terminar): ")
+        if nombre.lower() == "fin":
+            break
+        turnos.append(nombre)
+    for i, n in enumerate(turnos, 1):
+        print(f"Turno {i}: {n}")
+
+def ejercicio_g():
+    pares = [i for i in range(1, 101) if i % 2 == 0]
+    print("Cantidad de pares entre 1 y 100:", len(pares))
+
+def ejercicio_h():
+    while True:
+        c = float(input("Ingrese temperatura en °C (999 para salir): "))
+        if c == 999:
+            break
+        f = (c * 9/5) + 32
+        print(f"{c}°C = {f}°F")
+
+def ejercicio_i():
+    num = int(input("Ingrese un número: "))
+    if num < 2:
+        print("No es primo")
+        return
+    for i in range(2, int(num**0.5)+1):
+        if num % i == 0:
+            print("No es primo")
+            return
+    print("Es primo")
+
+def ejercicio_j():
+    nombres = []
+    while True:
+        nombre = input("Ingrese nombre (fin para terminar): ")
+        if nombre.lower() == "fin":
+            break
+        nombres.append(nombre)
+    for n in nombres:
+        print("Hola", n)
+
+def ejercicio_k():
+    nombres = []
+    while True:
+        nombre = input("Ingrese nombre: ")
+        if nombre in nombres:
+            print("Se repitió. Cantidad antes del duplicado:", len(nombres))
+            break
+        nombres.append(nombre)
+
+def ejercicio_l():
+    for i in range(100, 201):
+        if i % 7 == 0 and str(i).endswith("3"):
+            print(i)
+
+def ejercicio_m():
+    total = 0
+    productos = 0
+    while total <= 1000:
+        precio = float(input("Ingrese precio: "))
+        total += precio
+        productos += 1
+    print("Se cargaron", productos, "productos")
+
+def ejercicio_n():
+    nombre = input("Ingrese nombre: ")
+    edad = input("Ingrese edad: ")
+    mail = input("Ingrese mail: ")
+    if not edad.isdigit():
+        print("Edad inválida")
+    elif "@" not in mail:
+        print("Mail inválido")
+    else:
+        print("Formulario correcto")
+
+def ejercicio_o():
+    num = input("Ingrese un número: ")
+    for d in num:
+        print(d)
+
+def ejercicio_p():
+    opciones = ["piedra", "papel", "tijera"]
+    usuario_gana = 0
+    compu_gana = 0
+    for _ in range(3):
+        usuario = input("Elija piedra, papel o tijera: ").lower()
+        compu = random.choice(opciones)
+        print("Computadora eligió:", compu)
+        if usuario == compu:
+            print("Empate")
+        elif (usuario == "piedra" and compu == "tijera") or \
+             (usuario == "papel" and compu == "piedra") or \
+             (usuario == "tijera" and compu == "papel"):
+            print("Ganaste")
+            usuario_gana += 1
+        else:
+            print("Perdiste")
+            compu_gana += 1
+    if usuario_gana > compu_gana:
+        print("Ganaste más rondas")
+    elif compu_gana > usuario_gana:
+        print("La computadora ganó más rondas")
+    else:
+        print("Empate en rondas")
+
+def ejercicio_q():
+    nums = [random.randint(1, 100) for _ in range(10)]
+    print("Números:", nums)
+    mayores = sum(1 for n in nums if n > 50)
+    print("Cantidad mayores a 50:", mayores)
+
+def ejercicio_r():
+    datos = []
+    for i in range(5):
+        nombre = input("Ingrese nombre: ")
+        nota = float(input("Ingrese nota: "))
+        datos.append((nombre, nota))
+    promedio = sum(n for _, n in datos) / len(datos)
+    mejor = max(datos, key=lambda x: x[1])
+    print("Promedio general:", promedio)
+    print("Mejor nota:", mejor[0], "con", mejor[1])
+
+def ejercicio_s():
+    import string
+    for letra in reversed(string.ascii_uppercase):
+        print(letra)
+
+
+# Menú principal
+def menu():
+    opciones = {
+        "a": ejercicio_a, "b": ejercicio_b, "c": ejercicio_c, "d": ejercicio_d,
+        "e": ejercicio_e, "f": ejercicio_f, "g": ejercicio_g, "h": ejercicio_h,
+        "i": ejercicio_i, "j": ejercicio_j, "k": ejercicio_k, "l": ejercicio_l,
+        "m": ejercicio_m, "n": ejercicio_n, "o": ejercicio_o, "p": ejercicio_p,
+        "q": ejercicio_q, "r": ejercicio_r, "s": ejercicio_s
+    }
+
+    while True:
+        print("\n--- MENÚ SEGUNDO BLOQUE ---")
+        print("a-s: Elegir ejercicio")
+        print("x: Salir")
+        opcion = input("Ingrese una opción: ").lower()
+
+        if opcion == "x":
+            print("¡Hasta luego!")
+            break
+        elif opcion in opciones:
+            opciones[opcion]()
+        else:
+            print("Opción inválida")
+
+
+# Ejecutar menú
+menu()
+
