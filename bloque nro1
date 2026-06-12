@@ -1,0 +1,159 @@
+def ejercicio_a():
+    for i in range(1, 101):
+        if i % 3 == 0:
+            print(i)
+
+def ejercicio_b():
+    edad = int(input("Ingrese su edad: "))
+    if edad < 18:
+        print("Menor de edad")
+    elif edad == 18:
+        print("Tiene justo 18")
+    else:
+        print("Mayor de edad")
+
+def ejercicio_c():
+    palabra = input("Ingrese una palabra: ")
+    print("La palabra tiene", len(palabra), "letras")
+
+def ejercicio_d():
+    clave = "secreta"
+    intentos = 5
+    while intentos > 0:
+        intento = input("Adivine la contraseña: ")
+        if intento == clave:
+            print("¡Correcto!")
+            return
+        else:
+            intentos -= 1
+            print("Incorrecto. Intentos restantes:", intentos)
+    print("Se acabaron los intentos.")
+
+def ejercicio_e():
+    numeros = []
+    for i in range(10):
+        num = int(input(f"Ingrese el número {i+1}: "))
+        numeros.append(num)
+    print("El número más alto es:", max(numeros))
+
+def ejercicio_f():
+    nombre = input("Ingrese su nombre: ")
+    print("Hola", nombre.capitalize())
+
+def ejercicio_g():
+    for i in range(1, 11):
+        print(f"7 x {i} = {7*i}")
+
+def ejercicio_h():
+    for i in range(10, 0, -1):
+        print(i)
+    print("oa")
+
+def ejercicio_i():
+    num = int(input("Ingrese un número: "))
+    if num % 2 == 0:
+        print("par")
+    else:
+        print("impar")
+
+def ejercicio_j():
+    frase = input("Ingrese una frase: ")
+    vocales = sum(1 for letra in frase.lower() if letra in "aeiou")
+    print("Cantidad de vocales:", vocales)
+
+def ejercicio_k():
+    num = int(input("Ingrese un número: "))
+    for i in range(1, 13):
+        print(f"{num} x {i} = {num*i}")
+
+def ejercicio_l():
+    total = 0
+    while total <= 100:
+        num = int(input("Ingrese un número: "))
+        total += num
+        print("Total acumulado:", total)
+
+def ejercicio_m():
+    palabra = input("Ingrese una palabra: ")
+    for letra in palabra:
+        print(letra)
+
+def ejercicio_n():
+    edad = int(input("Ingrese su edad: "))
+    if edad >= 18 and edad >= 16:
+        print("Puede votar y manejar")
+    elif edad >= 18:
+        print("Puede manejar")
+    elif edad >= 16:
+        print("Puede votar")
+    else:
+        print("No puede votar ni manejar")
+
+def ejercicio_o():
+    for i in range(50, -1, -5):
+        print(i)
+
+def ejercicio_p():
+    while True:
+        c1 = input("Ingrese la contraseña: ")
+        c2 = input("Repita la contraseña: ")
+        if c1 == c2:
+            print("Acceso permitido")
+            break
+        else:
+            print("Las contraseñas no coinciden. Intente de nuevo.")
+
+def ejercicio_q():
+    while True:
+        nombre = input("Ingrese un nombre: ")
+        if len(nombre) > 10:
+            print("Fin del programa")
+            break
+
+def ejercicio_r():
+    oracion = input("Ingrese una oración: ")
+    cantidad = oracion.lower().count("a")
+    print("Cantidad de letras 'a':", cantidad)
+
+
+# Menú principal
+def menu():
+    opciones = {
+        "a": ejercicio_a,
+        "b": ejercicio_b,
+        "c": ejercicio_c,
+        "d": ejercicio_d,
+        "e": ejercicio_e,
+        "f": ejercicio_f,
+        "g": ejercicio_g,
+        "h": ejercicio_h,
+        "i": ejercicio_i,
+        "j": ejercicio_j,
+        "k": ejercicio_k,
+        "l": ejercicio_l,
+        "m": ejercicio_m,
+        "n": ejercicio_n,
+        "o": ejercicio_o,
+        "p": ejercicio_p,
+        "q": ejercicio_q,
+        "r": ejercicio_r,
+    }
+
+    while True:
+        print("\n--- MENÚ DE EJERCICIOS ---")
+        print("a-r: Elegir ejercicio")
+        print("x: Salir")
+        opcion = input("Ingrese una opción: ").lower()
+
+        if opcion == "x":
+            print("¡Hasta luego!")
+            break
+        elif opcion in opciones:
+            opciones[opcion]()
+        else:
+            print("Opción inválida")
+
+
+# Ejecutar menú
+menu()
+
