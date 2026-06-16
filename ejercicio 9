@@ -1,0 +1,22 @@
+using System;
+
+namespace Ejercicio9_Invertir
+{
+    class Program
+    {
+        static void Main()
+        {
+            Console.Write("Ingresá una palabra: ");
+            string palabra = Console.ReadLine();
+
+            string invertida = "";
+            for (int i = palabra.Length - 1; i >= 0; i--) // Length de String
+            {
+                invertida += palabra[i]; // índice de String
+            }
+
+            Console.WriteLine($"Invertida: {invertida}");
+            Console.ReadLine();
+        }
+    }
+}
