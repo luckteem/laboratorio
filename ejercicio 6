@@ -1,0 +1,33 @@
+using System;
+
+namespace Ejercicio6_Posicion
+{
+    class Program
+    {
+        static void Main()
+        {
+            try
+            {
+                Console.Write("Ingresá una palabra: ");
+                string palabra = Console.ReadLine();
+
+                Console.Write("Ingresá una posición: ");
+                int pos = int.Parse(Console.ReadLine());
+
+                char caracter = palabra[pos]; // índice de String
+
+                Console.WriteLine($"El carácter en la posición {pos} es: {caracter}");
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Error: la posición debe ser un número entero.");
+            }
+            catch (IndexOutOfRangeException)
+            {
+                Console.WriteLine("Error: la posición ingresada no existe en la palabra.");
+            }
+
+            Console.ReadLine();
+        }
+    }
+}
