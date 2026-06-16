@@ -1,0 +1,32 @@
+using System;
+
+namespace Ejercicio8_SumaComas
+{
+    class Program
+    {
+        static void Main()
+        {
+            try
+            {
+                Console.Write("Ingresá números separados por comas. Ej: 10,20,30: ");
+                string cadena = Console.ReadLine();
+
+                string[] numeros = cadena.Split(','); // Split de String
+                int suma = 0;
+
+                foreach (string n in numeros)
+                {
+                    suma += int.Parse(n.Trim()); // Parse + Trim
+                }
+
+                Console.WriteLine($"La suma total es: {suma}");
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Error: asegurate de ingresar solo números separados por comas.");
+            }
+
+            Console.ReadLine();
+        }
+    }
+}
