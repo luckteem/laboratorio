@@ -1,0 +1,32 @@
+using System;
+
+namespace Ejercicio5_Division
+{
+    class Program
+    {
+        static void Main()
+        {
+            try
+            {
+                Console.Write("Ingresá el primer número entero: ");
+                int num1 = int.Parse(Console.ReadLine());
+
+                Console.Write("Ingresá el segundo número entero: ");
+                int num2 = int.Parse(Console.ReadLine());
+
+                int resultado = num1 / num2;
+                Console.WriteLine($"Resultado: {resultado}");
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Error: debés ingresar solo números enteros.");
+            }
+            catch (DivideByZeroException)
+            {
+                Console.WriteLine("Error: no se puede dividir por cero.");
+            }
+
+            Console.ReadLine();
+        }
+    }
+}
