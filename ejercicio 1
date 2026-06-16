@@ -1,0 +1,18 @@
+using System;
+
+namespace Ejercicio1_Longitud
+{
+    class Program
+    {
+        static void Main()
+        {
+            Console.Write("Ingresá una frase: ");
+            string frase = Console.ReadLine();
+
+            int cantidad = frase.Length; // método de String
+
+            Console.WriteLine($"La frase contiene {cantidad} caracteres.");
+            Console.ReadLine();
+        }
+    }
+}
