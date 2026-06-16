@@ -1,0 +1,19 @@
+using System;
+
+namespace Ejercicio2_Conversion
+{
+    class Program
+    {
+        static void Main()
+        {
+            Console.Write("Ingresá una palabra: ");
+            string palabra = Console.ReadLine();
+
+            Console.WriteLine($"Mayúsculas: {palabra.ToUpper()}"); // ToUpper
+            Console.WriteLine($"Minúsculas: {palabra.ToLower()}"); // ToLower
+            Console.WriteLine($"Cantidad de caracteres: {palabra.Length}"); // Length
+
+            Console.ReadLine();
+        }
+    }
+}
