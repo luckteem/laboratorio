@@ -1,0 +1,23 @@
+using System;
+
+namespace Ejercicio7_Busqueda
+{
+    class Program
+    {
+        static void Main()
+        {
+            Console.Write("Ingresá una frase: ");
+            string frase = Console.ReadLine();
+
+            Console.Write("Ingresá la palabra a buscar: ");
+            string palabra = Console.ReadLine();
+
+            if (frase.Contains(palabra)) // Contains de String
+                Console.WriteLine("La palabra se encuentra dentro de la frase.");
+            else
+                Console.WriteLine("La palabra NO se encuentra en la frase.");
+
+            Console.ReadLine();
+        }
+    }
+}
