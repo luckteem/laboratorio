@@ -1,0 +1,28 @@
+using System;
+
+namespace Ejercicio4_PrimeraUltima
+{
+    class Program
+    {
+        static void Main()
+        {
+            try
+            {
+                Console.Write("Ingresá una palabra: ");
+                string palabra = Console.ReadLine();
+
+                char primera = palabra[0];
+                char ultima = palabra[palabra.Length - 1]; // Length + índice
+
+                Console.WriteLine($"Primera letra: {primera}");
+                Console.WriteLine($"Última letra: {ultima}");
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Error: no podés ingresar una cadena vacía.");
+            }
+
+            Console.ReadLine();
+        }
+    }
+}
