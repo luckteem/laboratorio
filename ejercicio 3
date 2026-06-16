@@ -1,0 +1,25 @@
+using System;
+
+namespace Ejercicio3_Vocales
+{
+    class Program
+    {
+        static void Main()
+        {
+            Console.Write("Ingresá una frase: ");
+            string frase = Console.ReadLine().ToLower(); // paso a minúscula
+
+            int contador = 0;
+            string vocales = "aeiou";
+
+            foreach (char c in frase)
+            {
+                if (vocales.Contains(c)) // Contains de String
+                    contador++;
+            }
+
+            Console.WriteLine($"La frase contiene {contador} vocales.");
+            Console.ReadLine();
+        }
+    }
+}
