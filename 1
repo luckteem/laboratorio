@@ -1,0 +1,28 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("=== 1. 5 PELÍCULAS FAVORITAS ===");
+
+        // Apunte: Declaro arreglo de string con 5 casilleros. Índice 0 al 4
+        string[] peliculas = new string[5];
+
+        // Apunte: "for" para cargar. i va de 0 a 4 = 5 vueltas
+        for (int i = 0; i < peliculas.Length; i++)
+        {
+            Console.Write($"Ingresa película #{i + 1}: ");
+            peliculas[i] = Console.ReadLine();
+        }
+
+        Console.WriteLine("\nTus películas:");
+        // Apunte: "foreach" recorre sin índice. Más fácil para mostrar todo
+        foreach (string peli in peliculas)
+        {
+            Console.WriteLine("- " + peli);
+        }
+    }
+}
+
+
