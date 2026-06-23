@@ -1,0 +1,26 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("=== 5. INSERTAR EN POSICIÓN 2 ===");
+
+        int[] numeros = { 10, 20, 30, 40, 50, 0 }; // El 0 es lugar libre
+        Console.WriteLine("Original: " + string.Join(", ", numeros));
+
+        Console.Write("Nuevo número: ");
+        int nuevo = int.Parse(Console.ReadLine());
+
+        // Apunte: Desplazo desde el final hasta la pos 3
+        // El de la pos 5 copia al 4, el 4 al 3, y así queda libre el 2
+        for (int i = numeros.Length - 1; i > 2; i--)
+        {
+            numeros[i] = numeros[i - 1];
+        }
+
+        numeros[2] = nuevo; // Apunte: ahora sí inserto en el índice 2
+        Console.WriteLine("Resultado: " + string.Join(", ", numeros));
+    }
+}
+
