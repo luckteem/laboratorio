@@ -1,0 +1,28 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("=== 4. PROMEDIO DE NOTAS ===");
+
+        double[] notas = new double[5];
+        double suma = 0;
+
+        for (int i = 0; i < notas.Length; i++)
+        {
+            Console.Write($"Nota #{i + 1}: ");
+            notas[i] = double.Parse(Console.ReadLine());
+            suma += notas[i]; // Apunte: += es igual a suma = suma + notas[i]
+        }
+
+        double promedio = suma / notas.Length;
+        Console.WriteLine($"\nPromedio: {promedio:F2}"); // :F2 = 2 decimales
+
+        // Apunte: if para decidir resultado
+        if (promedio >= 6)
+            Console.WriteLine("Aprobado");
+        else
+            Console.WriteLine("Reprobado");
+    }
+}
